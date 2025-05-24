@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Create LocalDate Beans -->
+    <bean id="doj" class="java.time.LocalDate" factory-method="parse">
+        <constructor-arg value="2015-06-15"/>
+    </bean>
+
+    <!-- Person Bean using constructor injection with null -->
+    <bean id="person" class="in.orcas.bean.PersonInfo">
+        <constructor-arg value="101"/>                                <!-- Long -->
+        <constructor-arg value="Anil Kumar"/>                         <!-- String -->
+        <constructor-arg type="java.time.LocalDate"><null/></constructor-arg> <!-- dob -->
+        <constructor-arg ref="doj"/>                                  <!-- doj -->
+        <constructor-arg type="java.time.LocalDate"><null/></constructor-arg> <!-- dom -->
+    </bean>
+
+</beans>

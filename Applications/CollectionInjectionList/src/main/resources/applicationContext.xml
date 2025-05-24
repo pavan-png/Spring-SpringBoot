@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="date1" class="java.time.LocalDate" factory-method="parse">
+        <constructor-arg value="2024-01-01" />
+    </bean>
+
+    <bean id="date2" class="java.time.LocalDate" factory-method="parse">
+        <constructor-arg value="2024-06-01" />
+    </bean>
+    <!-- Date beans using factory-method -->
+   <bean id="collegeBean" class="in.orcas.bean.College">
+        <property name="nameList">
+            <list>
+                <value>Pavan</value>
+                <value>Raj</value>
+                <value>Seema</value>
+            </list>
+        </property>
+        <property name="dateList">
+            <list>
+                <ref bean="date1" />
+                <ref bean="date2" />
+            </list>
+        </property>
+    </bean>
+  
+    
+	<!-- 
+    The factory-method attribute in a Spring <bean> tag tells Spring 
+    to create the bean instance using a static method (instead of calling a constructor).
+
+This is especially useful for classes that don't have public constructors, 
+or when the preferred creation logic is encapsulated inside a static method.
+	--> 
+</beans>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Parent bean with common/default properties -->
+    <bean id="baseCar" class="in.orcas.bean.Car" abstract = "true">
+        <property name="company" value="Hyundai"/>
+        <property name="color" value="White"/>
+        <property name="fuelType" value="Petrol"/>
+    </bean>
+
+    <!-- Child bean inheriting from baseCar -->
+    <bean id="car1" parent = "baseCar">
+        <property name="regNo" value="AP09AB1234"/>
+        <property name="engineNo" value="456789"/>
+        <property name="type" value="Hatchback"/>
+        <property name="model" value="i20"/>
+        <property name="engineCC" value="1197"/>
+        <property name="owner" value="pavan kalyan"/>
+    </bean>
+
+</beans>

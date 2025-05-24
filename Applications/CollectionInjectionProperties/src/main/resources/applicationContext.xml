@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- LocalDate Beans -->
+   <bean id="localDate1" class="java.time.LocalDate" factory-method="parse">
+        <constructor-arg value="2024-01-01"/>
+    </bean>
+
+    <bean id="localDate2" class="java.time.LocalDate" factory-method="parse">
+        <constructor-arg value="2025-05-25"/>
+    </bean>
+	<!--  In Spring XML configuration, factory-method="parse" is used 
+	to tell the Spring container how to create a bean instance using a static
+	 factory method instead of a constructor. -->
+  <!-- UniversityInfo Bean -->
+    <bean id="universityBean" class="in.orcas.bean.UniversityInfo">
+        <property name="facultyDetails">
+            <map>
+                <entry key="101" value="Dr. Sharma"/>
+                <entry key="102" value="Prof. Rao"/>
+            </map>
+        </property>
+
+        <property name="dateInfo">
+            <map>
+                <entry key="AdmissionOpen" value-ref="localDate1"/>
+                <entry key="ExamStart" value-ref="localDate2"/>
+            </map>
+        </property>
+        <property name="technologies">
+        	<props>
+        		<prop key="java">spring</prop>
+        		<prop key="python">Django</prop>
+        		<prop key="js">React</prop>
+        	</props>
+        </property>
+    </bean>
+</beans>
