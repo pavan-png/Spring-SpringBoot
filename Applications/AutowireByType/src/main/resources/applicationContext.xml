@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- DEPENDENT BEANS -->
+    <bean id="bdart" class="in.orcas.bean.BlueDart" />
+    <bean id="dtdc" class="in.orcas.bean.DTDC" />
+    <bean id="fFlight" class="in.orcas.bean.FirstFlight"  primary = "true"/>
+
+    <!-- TARGET BEAN (AUTOWIRE BY NAME) -->
+    <bean id="fpkt" class="in.orcas.bean.Flipkart" autowire="byType" />
+
+</beans>
