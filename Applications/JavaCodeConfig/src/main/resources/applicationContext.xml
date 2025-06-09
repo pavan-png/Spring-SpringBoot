@@ -1,0 +1,21 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- Department bean (setter injection using p-namespace) -->
+    <bean id="department" class="in.orcas.bean.Department"
+          p:deptId="101"
+          p:deptName="Engineering" />
+
+    <!-- Employee bean (constructor injection using c-namespace) -->
+    <bean id="employee" class="in.orcas.bean.Employee"
+          c:_0="1001"
+          c:_1="pavan"
+          c:_2="2000/01/01"
+          c:_3-ref="department" />
+</beans>
