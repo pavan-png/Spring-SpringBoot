@@ -1,0 +1,26 @@
+# Conversion to YAML from Properties formar report
+# Warnings:
+# - The yaml file had comments which are lost in the refactoring!
+emp:
+  info:
+    id: 10
+    name: sachin
+    company:
+      name: MI
+      location: Bandra
+      size: 35
+    skill-set:
+    - Java
+    - Spring
+    - SQL
+    project-name:
+    - Alpha
+    - Beta
+    - Gamma
+    mobile-numbers:
+    - 9876543210
+    - 9123456780
+    - 9012345676
+    id-details:
+      passport: E1234567
+      drivingLicense: D7654321
