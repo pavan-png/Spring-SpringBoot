@@ -23,7 +23,10 @@ public class EmployeeDao {
     }
 
     public List<Employee> getAll() {
-        return jdbcTemplate.query("SELECT * FROM emp13", new RowMapper<Employee>() {
+        String sql = "SELECT * FROM emp13";
+
+        RowMapper<Employee> rowMapper = new RowMapper<Employee>() {
+            @Override
             public Employee mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Employee e = new Employee();
                 e.setId(rs.getInt("id"));
@@ -33,6 +36,8 @@ public class EmployeeDao {
                 e.setDepartment(rs.getString("department"));
                 return e;
             }
-        });
+        };
+
+        return jdbcTemplate.query(sql, rowMapper);
     }
 }

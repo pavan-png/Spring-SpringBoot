@@ -30,6 +30,7 @@ public class EmployeeDao {
                 Employee e = new Employee();
                 e.setId(rs.getInt("id"));
                 e.setName(rs.getString("name"));
+                
                 return e;
             }
         };
