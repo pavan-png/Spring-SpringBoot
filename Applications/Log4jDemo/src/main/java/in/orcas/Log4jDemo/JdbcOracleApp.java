@@ -17,7 +17,7 @@ public class JdbcOracleApp {
         SimpleLayout layout = new SimpleLayout();
         ConsoleAppender appender = new ConsoleAppender(layout);
         logger.addAppender(appender);
-        logger.setLevel(Level.DEBUG);
+        logger.setLevel(Level.ALL);
     }
 
     public static void main(String[] args) {
