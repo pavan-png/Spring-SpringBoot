@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    
+    <Appenders>
+        <!-- Rolling File Appender -->
+        <RollingFile name="RollingFileAppender"
+                     fileName="C:\Users\Administrator\Downloads\new1\app.log"
+                     filePattern="logs/app-%d{yyyy-MM-dd}-%i.log.gz">
+            
+            <!-- Pattern Layout -->
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</Pattern>
+            </PatternLayout>
+            
+            <!-- Rolling Policy -->
+            <Policies>
+                <!-- Roll file every 10MB -->
+                <SizeBasedTriggeringPolicy size="10MB"/>
+                <!-- Also roll daily -->
+                <TimeBasedTriggeringPolicy interval="1"/>
+            </Policies>
+        </RollingFile>
+
+        <!-- Console Appender -->
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <!-- Your application logs -->
+        <Logger name="in.orcas" level="info" additivity="false">
+            <AppenderRef ref="RollingFileAppender"/>
+            <AppenderRef ref="ConsoleAppender"/>
+        </Logger>
+
+        <!-- Root logger -->
+        <Root level="info">
+            <AppenderRef ref="RollingFileAppender"/>
+            <AppenderRef ref="ConsoleAppender"/>
+        </Root>
+    </Loggers>
+
+</Configuration>

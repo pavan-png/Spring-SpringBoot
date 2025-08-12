@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+    <Appenders>
+
+        <!-- Daily Rolling File Appender -->
+        <RollingFile name="DailyRollingFileAppender"
+                     fileName="C:\Users\Administrator\Downloads\new1\app1.log"
+                     filePattern="logs/app-%d{yyyy-MM-dd}.log">
+
+            <!-- PatternLayout for formatting -->
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n" />
+
+            <!-- Roll over policy: create a new file every day -->
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+        <!-- Application package logging -->
+        <Logger name="in.orcas" level="debug" additivity="false">
+            <AppenderRef ref="DailyRollingFileAppender" />
+        </Logger>
+
+        <!-- Root logger -->
+        <Root level="info">
+            <AppenderRef ref="DailyRollingFileAppender" />
+        </Root>
+    </Loggers>
+
+</Configuration>
